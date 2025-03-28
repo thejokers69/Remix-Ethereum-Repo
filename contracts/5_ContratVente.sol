@@ -2,10 +2,10 @@
 pragma solidity >=0.8.2 <0.9.0;
 
 contract ContratVente {
-    address payable public _vendeur;    // Adresse payable du vendeur
-    address public _acheteur;          // Adresse de l'acheteur
+    address payable public _vendeur;
+    address public _acheteur;
     uint256 public _prix;            
-    enum EtatVente { Disponible, Paye, Livre }  // Énumération des états
+    enum EtatVente { Disponible, Paye, Livre }
     EtatVente public etat;
 
     constructor(uint256 _prixInitial) {
