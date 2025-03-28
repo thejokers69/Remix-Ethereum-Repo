@@ -1,56 +1,110 @@
-REMIX DEFAULT WORKSPACE
+# Remix Default Workspace
 
-Remix default workspace is present when:
-i. Remix loads for the very first time 
-ii. A new workspace is created with 'Default' template
-iii. There are no files existing in the File Explorer
+## Overview
 
-This workspace contains 3 directories:
+The Remix default workspace is present when:
 
-1. 'contracts': Holds three contracts with increasing levels of complexity.
-2. 'scripts': Contains four typescript files to deploy a contract. It is explained below.
-3. 'tests': Contains one Solidity test file for 'Ballot' contract & one JS test file for 'Storage' contract.
+- Remix loads for the very first time
+- A new workspace is created with the 'Default' template
+- There are no files existing in the File Explorer
 
-SCRIPTS
+This workspace contains three directories:
 
-The 'scripts' folder has four typescript files which help to deploy the 'Storage' contract using 'web3.js' and 'ethers.js' libraries.
+1. **contracts**: Holds three contracts with increasing levels of complexity.
+2. **scripts**: Contains four TypeScript files to deploy a contract. Details are explained below.
+3. **tests**: Contains one Solidity test file for the `Ballot` contract and one JavaScript test file for the `Storage` contract.
 
-For the deployment of any other contract, just update the contract name from 'Storage' to the desired contract and provide constructor arguments accordingly 
-in the file `deploy_with_ethers.ts` or  `deploy_with_web3.ts`
+---
 
-In the 'tests' folder there is a script containing Mocha-Chai unit tests for 'Storage' contract.
+## Scripts
 
-To run a script, right click on file name in the file explorer and click 'Run'. Remember, Solidity file must already be compiled.
-Output from script will appear in remix terminal.
+The `scripts` folder contains four TypeScript files that help deploy the `Storage` contract using the `web3.js` and `ethers.js` libraries.
 
-Please note, require/import is supported in a limited manner for Remix supported modules.
-For now, modules supported by Remix are ethers, web3, swarmgw, chai, multihashes, remix and hardhat only for hardhat.ethers object/plugin.
-For unsupported modules, an error like this will be thrown: '<module_name> module require is not supported by Remix IDE' will be shown.
+### Deployment Instructions
+
+To deploy any other contract:
+
+1. Update the contract name from `Storage` to the desired contract.
+2. Provide constructor arguments in the files `deploy_with_ethers.ts` or `deploy_with_web3.ts`.
+
+### Running Scripts
+
+- Right-click on the file name in the File Explorer and click **Run**.
+- Ensure the Solidity file is already compiled.
+- The output from the script will appear in the Remix terminal.
+
+---
+
+## Testing
+
+The `tests` folder includes:
+
+- A Mocha-Chai unit test script for the `Storage` contract.
+
+---
+
+## Module Support in Remix
+
+Remix supports limited modules for `require`/`import`. Supported modules include:
+
+- `ethers`, `web3`, `swarmgw`, `chai`, `multihashes`, `remix`, and `hardhat` (only for `hardhat.ethers` object/plugin).
+
+For unsupported modules, an error like `<module_name> module require is not supported by Remix IDE` will be shown.
+
+---
 
 ## Smart Contract Development - ContratVente
 
 ### Brief Description
-I am working on a Solidity smart contract called `ContratVente` as part of a blockchain assignment (TP 5). The contract models a simple sale where a seller lists an item at a fixed price, a buyer purchases it with Ether, and the seller confirms delivery to release funds.
 
-### Key Features Implemented
-- Seller address (payable), buyer address, and price variables
-- Enum for sale states (Disponible, Paye, Livre)
-- Constructor initializing the seller and price
-- Functions: `acheter()`, `confirmerLivraison()`, `rembourserAcheteur()`, and `getEtat()`
+The `ContratVente` Solidity smart contract models a simple sale where:
 
-### Development and Testing
-I’m using Remix Ethereum IDE to develop and test the contract.
+- A seller lists an item at a fixed price.
+- A buyer purchases the item with Ether.
+- The seller confirms delivery to release funds.
 
-### Screenshot
-The screenshot shows my Remix Ethereum IDE environment.
-- On the left, the "Deploy & Run Transactions" panel displays the deployed `ContratVente` contract at address 0x0B... with a balance of 1 ETH.
-- The panel shows the contract's functions (`acheter`, `confirmerLivraison`, `rembourserAcheteur`, `getEtat`) and state variables (`acheteur`, `prix`, `vendeur`, `etat`).
-- The center shows the code for `5_ContratVente.sol`, including the constructor and `acheter` function.
-- The bottom right shows transaction logs, including a successful `acheter()` call with 1 ETH (1000000000000000000 wei) and a failed `acheter()` call with an error ("Montant exact requis").
-- This demonstrates my progress in testing the contract's functionality and debugging issues.
+### Key Features
 
-### Additional Screenshots
-Here are two additional screenshots showing my Remix environment with the `ContratVente` contract deployed or being tested:
+- **State Variables**:
+  - `vendeur`: Payable address of the seller.
+  - `acheteur`: Address of the buyer.
+  - `prix`: Fixed price of the item in Wei.
+  - `etat`: Enum representing the sale state (`Disponible`, `Paye`, `Livre`).
 
-![Screenshot 1](images/Screenshot%202025-03-28%20at%2011.30.11%20PM.png)
-![Screenshot 2](images/Screenshot%202025-03-28%20at%2011.30.39%20PM.png)
+- **Functions**:
+  - `acheter()`: Allows a buyer to purchase the item by sending the exact amount of Ether.
+  - `confirmerLivraison()`: Called by the seller to confirm delivery and release funds.
+  - `rembourserAcheteur()`: Allows refunding the buyer under specific conditions.
+  - `getEtat()`: Returns the current state of the sale.
+
+---
+
+## Development and Testing
+
+The contract is developed and tested using the Remix Ethereum IDE, which provides:
+
+- Solidity compilation.
+- Deployment to local or test networks.
+- Function execution and testing.
+- Transaction monitoring.
+
+### Testing Results
+
+The contract has been tested with various scenarios:
+
+- Successful purchase with the exact payment amount.
+- Failed purchase attempts with incorrect payment.
+- State transitions through the sales process.
+- Fund transfers between parties.
+
+---
+
+## Screenshots
+
+### Contract Deployment and Testing
+
+![Contract with Balance](images/Screenshot%202025-03-28%20at%2011.30.39 PM.png)
+*Screenshot showing deployed contract with 1 ETH balance after a successful purchase transaction.*
+
+![Transaction Testing](images/Screenshot-2025-03-28-at-11.30.11 PM.png)
+*Screenshot demonstrating transaction testing, including a failed purchase attempt with incorrect payment amount.*
