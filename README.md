@@ -49,4 +49,8 @@ The screenshot shows my Remix Ethereum IDE environment.
 - The bottom right shows transaction logs, including a successful `acheter()` call with 1 ETH (1000000000000000000 wei) and a failed `acheter()` call with an error ("Montant exact requis").
 - This demonstrates my progress in testing the contract's functionality and debugging issues.
 
-![Screenshot of Remix Environment](images/remix-screenshot.png)
+### Additional Screenshots
+Here are two additional screenshots showing my Remix environment with the `ContratVente` contract deployed or being tested:
+
+![Screenshot 1](images/Screenshot%202025-03-28%20at%2011.30.11%20PM.png)
+![Screenshot 2](images/Screenshot%202025-03-28%20at%2011.30.39%20PM.png)
