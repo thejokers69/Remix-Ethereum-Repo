@@ -8,9 +8,9 @@
 			{
 				"inputs": [
 					{
-						"internalType": "string",
-						"name": "article",
-						"type": "string"
+						"internalType": "uint256",
+						"name": "_prixInitial",
+						"type": "uint256"
 					}
 				],
 				"stateMutability": "nonpayable",
@@ -24,6 +24,19 @@
 						"internalType": "address",
 						"name": "",
 						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "_prix",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
 					}
 				],
 				"stateMutability": "view",
@@ -51,6 +64,26 @@
 			},
 			{
 				"inputs": [],
+				"name": "confirmerLivraison",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "etat",
+				"outputs": [
+					{
+						"internalType": "enum ContratVente.EtatVente",
+						"name": "",
+						"type": "uint8"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
 				"name": "getEtat",
 				"outputs": [
 					{
@@ -64,7 +97,7 @@
 			},
 			{
 				"inputs": [],
-				"name": "livrer",
+				"name": "rembourserAcheteur",
 				"outputs": [],
 				"stateMutability": "nonpayable",
 				"type": "function"
@@ -98,11 +131,11 @@
 	},
 	"sources": {
 		"contracts/5_ContratVente.sol": {
-			"keccak256": "0x344613643256c887d94f82bfd993373c1aa5b0c310e3dee31350157b2f62ce28",
+			"keccak256": "0x56c02c27537a56ae98db648158980e6ba7317d85c24ab5aadfd6d0daa37422a0",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://c2c4a5eaa2c291ec37bd36de4aa8e916a17c3f159ee986ecd4141b9bc526a928",
-				"dweb:/ipfs/QmeQcZFvpbRVpZrRyuCFoh9WohYK1TsduQDxBWyttYGNHs"
+				"bzz-raw://ad3db3c730b7c0e1d59844b5080645e10e6cb921e85b3d7a3d7a2fac249a2810",
+				"dweb:/ipfs/QmesA4MJ2mJe5Xz57TngVba1bJU8LQ46MwyBqEcVMn9nhD"
 			]
 		}
 	},

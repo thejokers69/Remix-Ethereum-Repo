@@ -1,31 +1,46 @@
 // SPDX-License-Identifier: GPL-3.0
-
 pragma solidity >=0.8.2 <0.9.0;
 
-contract ContratVente{
+contract ContratVente {
+    address payable public _vendeur;    // Adresse payable du vendeur
+    address public _acheteur;          // Adresse de l'acheteur
+    uint256 public _prix;            
+    enum EtatVente { Disponible, Paye, Livre }  // Énumération des états
+    EtatVente public etat;
 
-    uint256 _prix;
-    string _article;
-    address payable public _vendeur;
-    address public _acheteur;
-    enum EtatVente{Disponible, Paye, Livre }
-    EtatVente etat;
-
-    constructor(string memory article){
-        _vendeur=payable (msg.sender);
-        etat=EtatVente.Disponible;
-        _article=article;
+    constructor(uint256 _prixInitial) {
+        _vendeur = payable(msg.sender);
+        _prix = _prixInitial;
+        etat = EtatVente.Disponible;
     }
-    function acheter()public payable {
-        _acheteur=msg.sender;
-        _prix=msg.value;
-        etat=EtatVente.Paye;
-        _vendeur.transfer(msg.value);
+    
+    function acheter() public payable {
+        require(etat == EtatVente.Disponible, "L'article n'est pas disponible");
+        require(msg.value == _prix, "Montant exact requis");
+        
+        _acheteur = msg.sender;
+        etat = EtatVente.Paye;
     }
-    function livrer()public {
-        etat=EtatVente.Livre;
+   
+    function confirmerLivraison() public {
+        require(msg.sender == _vendeur, "Seul le vendeur peut confirmer");
+        require(etat == EtatVente.Paye, "L'article doit etre paye d'abord");
+        
+        etat = EtatVente.Livre;
+        _vendeur.transfer(address(this).balance);
     }
-    function getEtat()public view returns(EtatVente){
+    
+    function rembourserAcheteur() public {
+        require(msg.sender == _vendeur, "Seul le vendeur peut rembourser");
+        require(etat == EtatVente.Paye, "L'article doit etre paye pour remboursement");
+        
+        payable(_acheteur).transfer(address(this).balance);
+        etat = EtatVente.Disponible;
+        _acheteur = address(0);  
+    }
+    
+    
+    function getEtat() public view returns (EtatVente) {
         return etat;
     }
 }
