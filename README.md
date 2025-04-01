@@ -149,9 +149,8 @@ The `package.json` file now includes the following dependencies:
 
 ### Scripts
 
-- `scripts/deploy_with_ethers.ts`: Deploys the `Storage` contract using ethers.js.
-- `scripts/deploy_with_web3.ts`: Deploys the `Storage` contract using web3.js.
-- `scripts/ethers-lib.ts`: Helper functions for deploying contracts with ethers.js.
+- `scripts/deploy_with_ethers.ts`: Deploys the `Storage` contract using ethers.js. The `Storage` contract is a simple contract used for demonstration purposes.
+- `scripts/deploy_with_web3.ts`: Deploys the `Storage` contract using web3.js. The `Storage` contract is a simple contract used for demonstration purposes.
 - `scripts/web3-lib.ts`: Helper functions for deploying contracts with web3.js.
 
 ### Tests
