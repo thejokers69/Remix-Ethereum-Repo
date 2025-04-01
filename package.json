@@ -24,6 +24,7 @@
     "axios": "^1.8.4"
   },
   "devDependencies": {
+    "braces": "^3.0.3",
     "got": "^14.4.7",
     "micromatch": "^4.0.8"
   }
