@@ -1,0 +1,31 @@
+# .github/dependabot.yml
+
+version: 2
+updates:
+  # Enable updates for npm dependencies (used in scripts/ and tests/)
+  - package-ecosystem: "npm"
+    directory: "/" # Location of package.json (root of the repo)
+    schedule:
+      interval: "weekly" # Check for updates weekly
+      day: "monday" # Run on Mondays
+      time: "09:00" # At 9:00 AM UTC
+    open-pull-requests-limit: 10 # Limit to 10 open PRs at a time
+    target-branch: "main" # Target the main branch for PRs
+    labels:
+      - "dependencies" # Add a label to PRs for easy filtering
+      - "npm"
+    commit-message:
+      prefix: "chore" # Prefix commit messages with "chore"
+      include: "scope" # Include the scope in the commit message
+    reviewers:
+      - "thejokers69" # Add yourself as a reviewer for PRs
+    ignore:
+      - dependency-name: "*" # Optionally ignore specific dependencies
+        versions: ["< 1.0.0"] # Example: Ignore versions below 1.0.0
+
+  # Optional: Add more ecosystems if you use other dependency managers
+  # For example, if you add GitHub Actions workflows later:
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
