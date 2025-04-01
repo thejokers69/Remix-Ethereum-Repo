@@ -118,7 +118,7 @@ The contract has been tested with various scenarios:
 ### Contracts
 
 - `contracts/4_FirstContract.sol`: A simple contract that stores and retrieves a message.
-- `contracts/5_ContratVente.sol`: A contract that models a simple sale process.
+- `contracts/5_ContractVente.sol`: A contract that models a simple sale process.
 
 ### Scripts
 
