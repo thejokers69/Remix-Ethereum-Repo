@@ -110,3 +110,73 @@ The contract has been tested with various scenarios:
 
 ![Transaction Testing](images/Screenshot-2025-03-28-at-11.30.11 PM.png)
 *Screenshot demonstrating transaction testing, including a failed purchase attempt with incorrect payment amount.*
+
+---
+
+## Newly Added Files
+
+### Contracts
+
+- `contracts/4_FirstContract.sol`: A simple contract that stores and retrieves a message.
+- `contracts/5_ContratVente.sol`: A contract that models a simple sale process.
+
+### Scripts
+
+- `main.js`: A script that makes an HTTP GET request using Axios.
+
+### Configuration
+
+- `package.json`: Contains project metadata and dependencies.
+
+---
+
+## New Dependencies
+
+The `package.json` file now includes the following dependencies:
+
+- `@remix-project/remixd`: ^0.6.45
+- `axios`: ^1.8.4
+
+### Dev Dependencies
+
+- `braces`: ^3.0.3
+- `got`: ^14.4.7
+- `micromatch`: ^4.0.8
+
+---
+
+## New Scripts and Tests
+
+### Scripts
+
+- `scripts/deploy_with_ethers.ts`: Deploys the `Storage` contract using ethers.js.
+- `scripts/deploy_with_web3.ts`: Deploys the `Storage` contract using web3.js.
+- `scripts/ethers-lib.ts`: Helper functions for deploying contracts with ethers.js.
+- `scripts/web3-lib.ts`: Helper functions for deploying contracts with web3.js.
+
+### Tests
+
+- `tests/Ballot_test.sol`: Solidity test for the `Ballot` contract.
+- `tests/storage.test.js`: JavaScript test for the `Storage` contract.
+
+---
+
+## GitHub Actions Workflows
+
+### CodeQL
+
+The repository now includes a GitHub Actions workflow for CodeQL analysis:
+
+- `.github/workflows/codeql.yml`: Configures CodeQL analysis for JavaScript, TypeScript, and Solidity code.
+
+---
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+---
+
+## Security
+
+If you discover any security vulnerabilities, please report them to the repository owner. We take security issues seriously and will address them promptly.
