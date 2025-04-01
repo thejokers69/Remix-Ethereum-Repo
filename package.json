@@ -20,6 +20,11 @@
   "homepage": "https://github.com/thejokers69/Remix-Ethereum-Repo#readme",
   "description": "",
   "dependencies": {
-    "@remix-project/remixd": "^0.6.45"
+    "@remix-project/remixd": "^0.6.45",
+    "axios": "^1.8.4"
+  },
+  "devDependencies": {
+    "got": "^14.4.7",
+    "micromatch": "^4.0.8"
   }
 }
