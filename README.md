@@ -1,5 +1,7 @@
 # Remix Default Workspace
 
+[![CodeQL](https://github.com/thejokers69/Remix-Ethereum-Repo/actions/workflows/codeql.yml/badge.svg?branch=main)](https://github.com/thejokers69/Remix-Ethereum-Repo/actions/workflows/codeql.yml)
+
 ## Overview
 
 The Remix default workspace is present when:
