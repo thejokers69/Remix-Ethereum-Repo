@@ -90,6 +90,7 @@ out
 # Nuxt.js build / generate output
 .nuxt
 dist
+.dist
 
 # Gatsby files
 .cache/
@@ -134,4 +135,19 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+
+# OS specific
 .DS_Store
+
+# Ethereum/Solidity specific
+contracts/artifacts/
+contracts/cache/
+cache/
+.deps/
+.states/
+
+# Project specific
+terminal.txt
+
+# Uncomment if you decide to ignore images
+# images/
