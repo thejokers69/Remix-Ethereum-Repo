@@ -1,48 +1,48 @@
-name: "CodeQL"
+# name: "CodeQL"
 
-on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
-  schedule:
-    - cron: '0 0 * * 2' # Runs every Tuesday at midnight
+# on:
+#   push:
+#     branches: [ main ]
+#   pull_request:
+#     branches: [ main ]
+#   schedule:
+#     - cron: '0 0 * * 2' # Runs every Tuesday at midnight
 
-jobs:
-  analyze:
-    name: Analyze
-    runs-on: ubuntu-latest
-    permissions:
-      actions: read
-      contents: read
-      security-events: write
+# jobs:
+#   analyze:
+#     name: Analyze
+#     runs-on: ubuntu-latest
+#     permissions:
+#       actions: read
+#       contents: read
+#       security-events: write
 
-    strategy:
-      fail-fast: false
-      matrix:
-        language: [ 'javascript', 'typescript', 'solidity' ]
-        # CodeQL supports [ 'cpp', 'csharp', 'go', 'java', 'javascript', 'python', 'ruby', 'typescript' ]
-        # Learn more about CodeQL language support at https://aka.ms/codeql-docs/language-support
+#     strategy:
+#       fail-fast: false
+#       matrix:
+#         language: [ 'javascript', 'typescript', 'solidity' ]
+#         # CodeQL supports [ 'cpp', 'csharp', 'go', 'java', 'javascript', 'python', 'ruby', 'typescript' ]
+#         # Learn more about CodeQL language support at https://aka.ms/codeql-docs/language-support
 
-    steps:
-    - name: Checkout repository
-      uses: actions/checkout@v3
+#     steps:
+#     - name: Checkout repository
+#       uses: actions/checkout@v3
 
-    - name: Setup Node.js environment
-      uses: actions/setup-node@v4.3.0
-      with:
-        node-version: '14.x' # Specify the Node.js version to use
-        check-latest: true # Ensures the latest version satisfying the version spec is used
-        cache: 'npm' # Specify the package manager for caching
-        cache-dependency-path: 'package-lock.json' # Specify the path to the dependency file
+#     - name: Setup Node.js environment
+#       uses: actions/setup-node@v4.3.0
+#       with:
+#         node-version: '14.x' # Specify the Node.js version to use
+#         check-latest: true # Ensures the latest version satisfying the version spec is used
+#         cache: 'npm' # Specify the package manager for caching
+#         cache-dependency-path: 'package-lock.json' # Specify the path to the dependency file
 
-    - name: Initialize CodeQL
-      uses: github/codeql-action/init@v2
-      with:
-        languages: ${{ matrix.language }}
+#     - name: Initialize CodeQL
+#       uses: github/codeql-action/init@v2
+#       with:
+#         languages: ${{ matrix.language }}
 
-    - name: Autobuild
-      uses: github/codeql-action/autobuild@v2
+#     - name: Autobuild
+#       uses: github/codeql-action/autobuild@v2
 
-    - name: Perform CodeQL Analysis
-      uses: github/codeql-action/analyze@v2
+#     - name: Perform CodeQL Analysis
+#       uses: github/codeql-action/analyze@v2
